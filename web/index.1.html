@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="ziggy.css">
+        <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="echarts.min.js"></script>
+        <title>Ziggy data analytics</title>
+    </head>
+    <body>
+        <div id="top">
+            <div id="title">Ziggy Stardust</div>
+            <div id="subtitle">Cajamar Card Analytics</div>
+            <a id="top-a" href="/map-points.html"><div id="top-link">¡Prueba el mapa temporal!</div></a>
+        </div>
+        <div id="filtering">
+            <div id="widget-filter">
+                <div  class="filter-field">
+                    <select id="sel-filter-dim">
+                        <option selected value="0">Sin filtro</option>
+                    </select>
+                </div>
+                <div  class="filter-field">
+                    <select id="sel-filter-val">
+                        <option selected value="0">-</option>
+                    </select>
+                </div>
+                <div  class="filter-field"><input type="text" id="date-from" placeholder="Fecha inicio"></div>
+                <div class="filter-field"><input type="text" id="date-to" placeholder="Fecha fin"></div>
+                <div  class="filter-field">
+                    <select id="sel-metric"></select>
+                </div>
+            </div>
+        </div>
+        <div id="first-row">
+            <div class="chart-block" id="widget-line">
+                <div class="widget-bar">
+                    <div class="widget-bar-title" >Line chart</div>
+                    <div id="granularity-line">
+                        <select id="sel-line-granularity"></select>
+                    </div>
+                </div>
+                <div class="echart" id="line-chart"></div>
+            </div>
+        </div>
+        <div id="second-row">
+            <div id="second-left">
+                <div class="chart-block" id="widget-map">
+                    <div class="widget-bar">
+                        <div class="widget-bar-title" >Mapa</div>
+                    </div>
+                    <div class="echart-long" id="map-chart"></div>
+                </div>
+            </div>
+            <div id="second-right">
+                <div class="chart-block" id="widget-pie">
+                    <div class="widget-bar">
+                        <div class="widget-bar-title" >Pie chart</div>
+                        <div id="dimension-pie">
+                            <select id="sel-pie-dimension"></select>
+                        </div>
+                    </div>
+                    <div class="echart" id="pie-chart"></div>
+                </div>
+                <div class="chart-block" id="widget-river">
+                    <div class="widget-bar">
+                        <div class="widget-bar-title" >Theme river</div>
+                        <div id="dimension-river">
+                            <select id="sel-river-dimension"></select>
+                        </div>
+                    </div>
+                    <div class="echart" id="river-chart"></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="ziggy.js"></script></body>
+</html>

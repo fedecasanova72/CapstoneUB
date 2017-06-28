@@ -23,5 +23,9 @@ logs
 .classpath
 .project
 
+# idea
+*.iml
+.idea
+
 # big files
 python/data

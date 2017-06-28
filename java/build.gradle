@@ -1,0 +1,37 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+task fatJar(type: Jar) {
+	baseName = 'Ziggy-API'
+    version  = '0.0.4'
+    manifest {
+        attributes 'Main-Class': 'com.ziggy.datalab.api.DataApi'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }}
+
+    exclude "META-INF/*.SF"
+    exclude "META-INF/*.DSA"
+    exclude "META-INF/*.RSA"
+
+    with jar
+}
+
+dependencies {
+    compile group: 'io.undertow', name: 'undertow-core', version: '1.4.8.Final'
+    compile group: 'com.mashape.unirest', name: 'unirest-java', version: '1.4.9'
+    
+    compile group: 'org.json', name: 'json', version: '20160810'
+    compile group: 'joda-time', name: 'joda-time', version: '2.9.4'
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.8'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.8'
+    
+    testCompile 'junit:junit:4.12'
+}
